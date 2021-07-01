@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --navbar-font-family: "Open Sans", Sans-serif;
+    --navbar-bg-color: #24252a;
+    --navbar-link-color: #edf0f1;
+    --navbar-link-hover-color: #0088a9;
+    --navbar-cta-bg-color: rgba(0, 136, 169, 1);
+    --navbar-cta-bg-hover-color: rgba(0, 136, 169, 0.8);
+}
+
+body {
+    background: #ccc;
+}
+
+a {
+    cursor: pointer;
+}
+
+header, .overlay {
+    background-color: var(--navbar-bg-color);
+    color: var(--navbar-link-color);
+    font-family: var(--navbar-font-family);
+}
+
+header a, .overlay a {
+    color: var(--navbar-link-color);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width:100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+#check-toogle-menu {
+    display: none;
+}
+
+header nav {
+    display: none;
+}
+
+.logo {
+    font-size: 35px;
+}
+
+.cta {
+    display: none;
+}
+
+.label-toogle-menu {
+    cursor: pointer;
+}
+
+.label-toogle-menu svg rect {
+    transition: fill 0.3s ease 0s;
+}
+
+.label-toogle-menu svg:hover rect {
+    fill: var(--navbar-link-hover-color);
+}
+
+main {
+    margin-top: 101px;
+}
+
+/* Mobile Nav Menu */
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: var(--navbar-bg-color);
+    overflow-x: hidden;
+    transition: width 0.5s ease 0s;
+}
+
+#check-toogle-menu:checked ~ .overlay {
+    width: 100%;
+}
+
+.overlay-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+
+.overlay a:not(.cta):hover,
+.overlay a:not(.cta):focus {
+    color: var(--navbar-link-hover-color);
+}
+
+.overlay-content .cta {
+    padding: 9px 25px;
+    background-color: var(--navbar-cta-bg-color);
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease 0s;
+}
+
+.overlay-content.cta:hover {
+    background-color: var(--navbar-cta-bg-hover-color);
+}
+
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: var(--navbar-link-color);
+}
+
+@media screen and (min-width: 400px) {
+    .cta {
+        display: block;
+        padding: 9px 25px;
+        background-color: var(--navbar-cta-bg-color);
+        border: none;
+        border-radius: 50px;
+        transition: background-color 0.3s ease 0s;
+    }
+
+    .cta:hover {
+        background-color: var(--navbar-cta-bg-hover-color);
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    header .label-toogle-menu {
+        display: none
+    }
+
+    header nav {
+        display: block;
+    }
+
+    header ul {
+        display: flex;
+    }
+
+    header ul li {
+        padding: 0 20px;
+    }
+
+    header ul li a {
+        transition: color 0.3s ease 0s;
+        font-weight: bold;
+    }
+
+    header ul li a:hover {
+        color: var(--navbar-link-hover-color);
+    }
+}
